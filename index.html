@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Информация о комнатах</title>
+  <style>
+	body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+	  background-color: lightgray;
+    }
+	.room-row {
+      display: column;
+	  background-color: white;
+    }
+    .room-block {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .room-name {
+	  color: purple;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .light-switch {
+      margin-bottom: 5px;
+    }
+    .brightness-slider {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .temperature-value {
+      font-weight: bold;
+    }
+    .slider-value {
+      display: inline-block;
+      width: 30px;
+      text-align: center;
+    }
+  </style>
+  <script src="script.js"></script>
+</head>
+<body>
+<div class = "room-row">
+  <div class="room-block">
+    <div class="room-name">Кухня</div>
+    <div class="light-switch">
+      <button onclick="toggleLight(1)">Свет: <span id="light-status-1">Выключен</span></button>
+    </div>
+    <div class="brightness-slider">
+      <label for="brightness-1">Степень освещенности: <span id = "slider-span-1" class="slider-value">0</span></label>
+      <input type="range" id="brightness-1" name="brightness-1" min="0" max="100" value="0" oninput="updateSliderValue(this, 1)">
+    </div>
+    <div class="temperature-value">Температура: <span id="temperature-kitchen">25°C</span></div>
+  </div>
+
+  <div class="room-block">
+    <div class="room-name">Зал</div>
+    <div class="light-switch">
+      <button onclick="toggleLight(2)">Свет: <span id="light-status-2">Выключен</span></button>
+    </div>
+    <div class="brightness-slider">
+      <label for="brightness-2">Степень освещенности: <span id = "slider-span-2" class="slider-value">0</span></label>
+      <input type="range" id="brightness-2" name="brightness-2" min="0" max="100" value="0" oninput="updateSliderValue(this, 2)">
+    </div>
+    <div class="temperature-value">Температура: <span id="temperature-livingroom">22°C</span></div>
+  </div>
+
+  <div class="room-block">
+    <div class="room-name">Спальня</div>
+    <div class="light-switch">
+      <button onclick="toggleLight(3)">Свет: <span id="light-status-3">Выключен</span></button>
+    </div>
+    <div class="brightness-slider">
+      <label for="brightness-3">Степень освещенности: <span id = "slider-span-3" class="slider-value">0</span></label>
+      <input type="range" id="brightness-3" name="brightness-3" min="0" max="100" value="0" oninput="updateSliderValue(this, 3)">
+    </div>
+    <div class="temperature-value">Температура: <span id="temperature-bedroom">20°C</span>
+	</div>
+</div>
+</div>
+</body>
+</html>

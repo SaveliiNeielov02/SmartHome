@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>График температуры</title>
+  <style>
+    .container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+	}
+
+    .graph {
+	  width: 80%;
+	  height: 80%;
+      border: 1px solid black;
+      margin-bottom: 10px; 
+    }
+
+    .heating-class {
+      margin-bottom: 10px; 
+	  margin-top: 10px;
+	  font-weight: bold; 
+    }
+
+    .input-fields {
+      display: flex;
+      margin-bottom: 10px;
+    }
+	.span-fields {
+      display: flex;
+	  flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .input-fields input {
+      margin-right: 10px;
+    }
+  </style>
+  <script src="temperatureScript.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="graph">
+      <canvas id="temperature-chart"></canvas>
+    </div>
+    <div class="span-fields">
+      <span class="heating-class">Текущая температура: 
+        <span id="temperature">-1</span>
+      </span>
+      <span class="heating-class">Состояние отопления: 
+        <span id="heating">False</span>
+      </span>
+    </div>
+    <div class="input-fields">
+      <input type="number" id="lower-bound" placeholder="Нижняя граница" value="-1">
+      <input type="number" id="upper-bound" placeholder="Верхняя граница" value="-1">
+    </div>
+    <button onclick="funcTresholds()">Установить границы</button>
+    <script>
+      function funcTresholds() {
+        var lowerBound = document.getElementById('lower-bound').value;
+        var upperBound = document.getElementById('upper-bound').value;
+        updateTresholds(lowerBound, upperBound);
+      }
+    </script>
+  </div>
+</body>
